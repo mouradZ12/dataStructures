@@ -1,0 +1,34 @@
+program CheckOrthogonalVectors;
+
+type
+  Vector = array[1..3] of real;
+
+var
+  v1, v2: Vector;
+  ps: real; // Dot product
+
+procedure dot_product(var v1, v2: Vector; var ps: real);
+begin
+  ps := v1[1] * v2[1] + v1[2] * v2[2] + v1[3] * v2[3];
+end;
+
+var
+  i: integer;
+
+begin
+  // Example vectors
+  v1[1] := 1;
+  v1[2] := 0;
+  v1[3] := 0;
+
+  v2[1] := 0;
+  v2[2] := 1;
+  v2[3] := 0;
+
+  dot_product(v1, v2, ps);
+
+  if ps = 0 then
+    writeln('The vectors are orthogonal.')
+  else
+    writeln('The vectors are not orthogonal.');
+end.
